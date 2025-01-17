@@ -1,5 +1,5 @@
 from registro_productos import *
-from mover_productos import * 
+from productos_en_bodega import * 
 
 opc = 0
 while opc != 3:
@@ -16,8 +16,8 @@ while opc != 3:
                 registrar_productos()
 
             case 2:
-                  print("Que producto desea mover:")
-                  mover_productos()
+                print("Que producto desea mover:")
+                mover_productos()
 
             case 0:
                 print("Programa terminado, vuelva pronto")               
@@ -25,4 +25,3 @@ while opc != 3:
             case _:
 
                 print("Selecione una opcion valida!")
-        

@@ -3,7 +3,7 @@ from datetime import date, datetime
 
 
 
-productos_registrados = {}
+productos_registrados = []
 
 def fecha():
     fecha = date.today()
@@ -14,29 +14,27 @@ def fecha():
 
 def registrar_productos():
  
-
+    global productos_registrados
     codigo = input("\nCodigo del producto > ")
     nombre_producto = input("\nNombre del producto > ")
     provedor = input("\nProvedor > ")
-    saldo = 0
+    stock = 0
 
     registrados = {
         "Fecha" : fecha(),
         "Codigo del Producto" : codigo,
         "Nombre del producto" : nombre_producto,
         "Provedor del producto" : provedor,
-        "Cantidad" : saldo
+        "Cantidad" : stock
     }
     
-    productos_registrados[codigo] = registrados
+    productos_registrados.append(registrados)
 
-    with open("Productos registrados/productos.json", "a") as archivo:
-        datos = dumps(registrados)
+    with open("Productos registrados/productos.json", "w") as archivo:
+        datos = dumps(productos_registrados, indent=4)
         archivo.write(f"\n{datos}")
-        archivo.close()
 
         print("\nProducto agregado:\n")
 
         for llave, valor in registrados.items():
-            print(f"{llave}: {valor}")
-    
+            print(f"{llave} : {valor}")
