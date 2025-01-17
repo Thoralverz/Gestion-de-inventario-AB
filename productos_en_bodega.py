@@ -15,10 +15,11 @@ def mover_productos():
                 dump(productos_registrados, archivo, indent=4)  
             
             movimientos = [
-                {"Movimiento exitoso" : "Producto agregado"},
-                {"Codigo" : producto_mover },
-                {"cantidad" : cantidad },
-                {"hora" : fecha() }
+                ["Movimiento exitoso : Producto agregado" ],
+                [f"hora : {fecha()}"]
+                [f"Codigo : {producto_mover}" ],
+                [f"cantidad : {cantidad}" ],
+                
             ]
                 
             archivo = open(f"Productos registrados/ Movimientos{producto_mover}.csv", "a")
