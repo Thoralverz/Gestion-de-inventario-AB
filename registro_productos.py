@@ -4,28 +4,28 @@ from datetime import date, datetime
 
 
 productos_registrados = []
+registrados = {}
 
 def fecha():
     fecha = date.today()
     hora = datetime.now()
     hora_personalizada = hora.strftime("%H:%M")
-    hora_actual = f"El producto se agrego: {fecha} // a la(s): {hora_personalizada}"
+    hora_actual = f"El producto se actualizo: {fecha} // a la(s): {hora_personalizada}"
     return hora_actual
 
 def registrar_productos():
- 
-    global productos_registrados
+    global registrados
     codigo = input("\nCodigo del producto > ")
     nombre_producto = input("\nNombre del producto > ")
     provedor = input("\nProvedor > ")
     stock = 0
-
+    
     registrados = {
         "Fecha" : fecha(),
         "Codigo del Producto" : codigo,
         "Nombre del producto" : nombre_producto,
-        "Provedor del producto" : provedor,
-        "Cantidad" : stock
+        "Proveedor del producto" : provedor,
+        "Cantidad" : stock,
     }
     
     productos_registrados.append(registrados)
